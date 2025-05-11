@@ -1,18 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <!-- Current libraries (GLTF animation & WebXR fixes) -->
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.loaders.min.js"></script>
+
+    <!-- 1️⃣ component: play / stop sound with marker visibility -->
+    <script>
+        AFRAME.registerComponent('toggle-sound-on-marker', {
+            init() {
+                const marker = this.el;                       // ↙ the <a-marker>
+                const sound  = document.querySelector('#bg'); // ↙ the <a-entity sound>
+
+                marker.addEventListener('markerFound', () => {
+                    sound.components.sound.playSound();
+                });
+
+                marker.addEventListener('markerLost', () => {
+                    sound.components.sound.stopSound();
+                });
+            }
+        });
+    </script>
+
+    <title>Demon Dance – AR</title>
 </head>
-<body style='margin : 0; overflow: hidden;'>
+
+<body style="margin:0; overflow:hidden;">
 <a-scene embedded arjs>
+    <!-- Assets -->
     <a-assets>
         <a-asset-item id="demon" src="assets/demon.glb"></a-asset-item>
+        <a-asset-item id="fire" src="assets/fire.obj"></a-asset-item>
+        <a-asset-item id="fire-mtl" src="assets/fire.mtl"></a-asset-item>
+        <audio id="music" src="assets/fire.mp3"></audio>
     </a-assets>
-    <a-marker preset="hiro">
-        <a-entity gltf-model="assets/demon.glb" position="0 0 0" rotation="-90 0 0" scale="0.3 0.3 0.3" animation-mixer></a-entity>
+
+    <!-- Marker with the component that toggles sound -->
+    <a-marker preset="hiro" toggle-sound-on-marker>
+        <a-entity gltf-model="#demon"
+                  rotation="-90 0 0"
+                  scale="0.3 0.3 0.3"
+                  animation-mixer>
+        </a-entity>
+        <a-entity obj-model="obj: #fire; mtl: #fire-mtl"
+                  rotation="-90 0 0"
+                  scale="0.3 0.3 0.3"
+               >
+        </a-entity>
+        <!-- Positional audio -->
+        <a-entity id="bg"
+                  sound="src:#music;
+                         autoplay:false;  <!-- browsers need user-gesture first -->
+                         loop:true;
+                         volume:0.5"
+                  position="0 1 0">
+        </a-entity>
     </a-marker>
+
     <a-entity camera></a-entity>
 </a-scene>
 </body>
