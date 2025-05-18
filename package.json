@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
-    "local-web-server": "^5.4.0"
+    "local-web-server": "^5.4.0",
+    "ws": "^8.18.2"
   }
 }
