@@ -100,12 +100,14 @@
         <!-- Models -->
         <a-asset-item id="rex" src="assets/models/rex.glb"></a-asset-item>
         <a-asset-item id="dgon" src="assets/models/dgon.glb"></a-asset-item>
+        <a-asset-item id="tarisland_dragon" src="assets/models/tarisland_dragon.glb"></a-asset-item>
         <!--        <a-asset-item id="pumpkinModel" src="assets/models/pumpkin.glb"></a-asset-item>-->
         <!--        <a-asset-item id="chucky" src="assets/models/chucky.glb"></a-asset-item>-->
 
         <!-- Sounds -->
         <audio id="fireSound" src="assets/audio/fire.mp3"></audio>
         <audio id="commonSound" src="assets/audio/common.mp3"></audio>
+        <audio id="dragonRoarSound" src="assets/audio/dragon-roar.mp3"></audio>
         <!--        <audio id="chuckySound" src="assets/audio/evil.mp3"></audio>-->
         <!--        <audio id="pumpkinSound" src="assets/audio/funny.mp3"></audio>-->
     </a-assets>
@@ -147,6 +149,17 @@
         <a-entity id="fire-sound" sound="src: #fireSound; autoplay: false; loop: true"></a-entity>
     </a-marker>
 
+    <!-- Tharee's Dragon -->
+    <a-marker type="pattern" url="assets/markers/pattern-pattern-p.patt" id="dragon-marker">
+        <a-entity gltf-model="#tarisland_dragon" position="0 0 0" rotation="-90 0 0" scale="0.07 0.07 0.07"
+              material="color: #0000FF; emissive: #ff0000; emissiveIntensity: 0.5"
+              animation-mixer="clip: Qishilong_attack01"
+              animation__fly="property: position; dur: 2000; dir: alternate; loop: true; to: 0 1 0; easing: easeInOutQuad"
+              animation__glow="property: material.color; from: #ff0000; to: #00ff00; dir: alternate; dur: 2000; loop: true; easing: easeInOutQuad"
+              animation__color="property: material.emissive; from: #000000; to: #ff0000; dir: alternate; dur: 1000; loop: true"
+        ></a-entity>
+        <a-entity id="dragon-roar" sound="src: #dragonRoarSound; autoplay: false; loop: true"></a-entity>
+    </a-marker>
     <!-- Pumpkin -->
     <!--    <a-marker type="pattern" url="assets/markers/pattern-p.patt" id="pumpkin-marker">-->
     <!--        <a-entity gltf-model="#pumpkinModel" position="0 0 0" rotation="-90 0 0" scale="4 4 4"-->
@@ -173,6 +186,7 @@
     const markers = [
         {markerId: '#rex-marker', soundId: '#fire-sound'},
         {markerId: '#common-marker', soundId: '#common-sound'},
+        {markerId: '#dragon-marker', soundId: '#dragon-roar'},
         // { markerId: '#pumpkin-marker', soundId: '#pumpkin-sound' },
         // { markerId: '#chucky-marker', soundId: '#chucky-sound' }
     ];
