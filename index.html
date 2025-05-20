@@ -129,14 +129,28 @@
                     loop: true;
                     easing: linear; ">
         </a-entity>
-        <a-entity 
-  gltf-model="#cyclops" 
-  position="0 0.276 0.000" 
-  scale="1 1 1" 
-  rotation="0 90 0"
-  animation-mixer 
-  animation__jump="property: position; delay: 2000; dur: 800; to: 0 0.6 0; dir: alternate; loop: true; easing: easeInOutQuad">
+<a-entity 
+    id="cyclops"
+    gltf-model="#cyclops" 
+    position="0 0.1 0" 
+    scale="0.8 0.8 0.8" 
+    rotation="0 180 0"
+    animation-mixer
+    animation__float="
+        property: position; 
+        dir: alternate;
+        to: 0 0.6 0; 
+        dur: 1200; 
+        easing: easeInOutSine; 
+        loop: true"
+    animation__spin="
+        property: rotation; 
+        to: 0 540 0; 
+        dur: 4000; 
+        easing: linear; 
+        loop: true">
 </a-entity>
+
         <a-entity
                 id="common-sound"
                 sound="src: #commonSound; autoplay: false; loop: true">
@@ -156,14 +170,28 @@
     </a-marker>
 
     <!-- Zimma Cyclops -->
-    <a-marker preset="marks" id="cyclops-marker">
+    <a-marker preset="download" id="cyclops-marker">
         <a-entity 
-  gltf-model="#cyclops" 
-  position="0 -0.5 -1" 
-  scale="0.01 0.01 0.01" 
-  rotation="180 0 90"
-  animation-mixer 
-  animation__jump="property: position; delay: 2000; dur: 800; to: 0 0.6 0; dir: alternate; loop: true; easing: easeInOutQuad">
+    id="cyclops"
+    gltf-model="#cyclops" 
+    position="0 0.1 0" 
+    scale="0.8 0.8 0.8" 
+    rotation="0 180 0"
+    animation-mixer
+    animation__float="
+        property: position; 
+        dir: alternate;
+        to: 0 0.6 0; 
+        dur: 1200; 
+        easing: easeInOutSine; 
+        loop: true"
+    animation__spin="
+        property: rotation; 
+        to: 0 540 0; 
+        dur: 4000; 
+        easing: linear; 
+        loop: true">
+</a-entity>
 </a-entity>
         <a-entity id="fire-sound" sound="src: #fireSound; autoplay: false; loop: true"></a-entity>
     </a-marker>
