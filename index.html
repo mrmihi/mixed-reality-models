@@ -100,6 +100,7 @@
         <!-- Models -->
         <a-asset-item id="rex" src="assets/models/rex.glb"></a-asset-item>
         <a-asset-item id="dgon" src="assets/models/dgon.glb"></a-asset-item>
+        <a-asset-item id="cyclops" src="assets/models/cyclops.glb"></a-asset-item>
         <!--        <a-asset-item id="pumpkinModel" src="assets/models/pumpkin.glb"></a-asset-item>-->
         <!--        <a-asset-item id="chucky" src="assets/models/chucky.glb"></a-asset-item>-->
 
@@ -128,10 +129,17 @@
                     loop: true;
                     easing: linear; ">
         </a-entity>
+        <a-entity 
+  gltf-model="#cyclops" 
+  position="0 0.276 0.000" 
+  scale="1 1 1" 
+  rotation="0 90 0"
+  animation-mixer 
+  animation__jump="property: position; delay: 2000; dur: 800; to: 0 0.6 0; dir: alternate; loop: true; easing: easeInOutQuad">
+</a-entity>
         <a-entity
                 id="common-sound"
                 sound="src: #commonSound; autoplay: false; loop: true">
-        </a-entity>
     </a-marker>
 
 
@@ -144,6 +152,19 @@
                   animation__tilt="property: rotation; dur: 3000; dir: alternate; loop: true; to: -90 10 5; easing: easeInOutSine"
                   animation__glow="property: material.color; from: #000000; to: #ff0000; dir: alternate; dur: 2000; loop: true; easing: easeInOutQuad"
         ></a-entity>
+        <a-entity id="fire-sound" sound="src: #fireSound; autoplay: false; loop: true"></a-entity>
+    </a-marker>
+
+    <!-- Zimma Cyclops -->
+    <a-marker preset="marks" id="cyclops-marker">
+        <a-entity 
+  gltf-model="#cyclops" 
+  position="0 -0.5 -1" 
+  scale="0.01 0.01 0.01" 
+  rotation="180 0 90"
+  animation-mixer 
+  animation__jump="property: position; delay: 2000; dur: 800; to: 0 0.6 0; dir: alternate; loop: true; easing: easeInOutQuad">
+</a-entity>
         <a-entity id="fire-sound" sound="src: #fireSound; autoplay: false; loop: true"></a-entity>
     </a-marker>
 
@@ -173,6 +194,7 @@
     const markers = [
         {markerId: '#rex-marker', soundId: '#fire-sound'},
         {markerId: '#common-marker', soundId: '#common-sound'},
+        { markerId: '#cyclops-marker', soundId: '#fire-sound-cyclops' }
         // { markerId: '#pumpkin-marker', soundId: '#pumpkin-sound' },
         // { markerId: '#chucky-marker', soundId: '#chucky-sound' }
     ];
