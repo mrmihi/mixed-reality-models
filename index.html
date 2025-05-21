@@ -104,6 +104,7 @@
         <a-asset-item id="cyclops" src="assets/models/cyclops.glb"></a-asset-item>
         <a-asset-item id="tarisland_dragon" src="assets/models/tarisland_dragon.glb"></a-asset-item>
         <a-asset-item id="grassy_landscape_with_snow" src="assets/models/grassy_landscape_with_snow.glb"></a-asset-item>
+        <a-asset-item id="flying_pterodactyl_dinosaur_soars_over_island" src="assets/models/flying_pterodactyl_dinosaur_soars_over_island.glb"></a-asset-item>
 
         <!--        <a-asset-item id="pumpkinModel" src="assets/models/pumpkin.glb"></a-asset-item>-->
         <!--        <a-asset-item id="chucky" src="assets/models/chucky.glb"></a-asset-item>-->
@@ -112,6 +113,7 @@
         <audio id="fireSound" src="assets/audio/fire.mp3"></audio>
         <audio id="commonSound" src="assets/audio/common.mp3"></audio>
         <audio id="dragonRoarSound" src="assets/audio/dragon-roar.mp3"></audio>
+        <audio id="jurassicParkSound" src="assets/audio/jurassic-park.mp3"></audio>
         <!--        <audio id="chuckySound" src="assets/audio/evil.mp3"></audio>-->
         <!--        <audio id="pumpkinSound" src="assets/audio/funny.mp3"></audio>-->
     </a-assets>
@@ -196,6 +198,7 @@
             id="common-sound"
             sound="src: #commonSound; autoplay: false; loop: true">
     </a-marker>
+    <!-- End of common scene -->
 
 
     <!-- Dinal T-Rex -->
@@ -248,6 +251,16 @@
         ></a-entity>
         <a-entity id="dragon-roar" sound="src: #dragonRoarSound; autoplay: false; loop: true"></a-entity>
     </a-marker>
+
+    <!-- Sayuru's Flying Pterodactyl -->
+    <a-marker type="pattern" url="markers/pattern-poke.patt" id="pterodactyl-marker">
+        <a-entity gltf-model="#flying_pterodactyl_dinosaur_soars_over_island" position="0 0 0" rotation="-90 0 0" scale="0.8 0.8 0.8"
+                  animation-mixer
+        ></a-entity>
+        <a-entity id="jurassic-park" sound="src: #jurassicParkSound; autoplay: false; loop: true"></a-entity>
+    </a-marker>
+
+
     <!-- Pumpkin -->
     <!--    <a-marker type="pattern" url="assets/markers/pattern-p.patt" id="pumpkin-marker">-->
     <!--        <a-entity gltf-model="#pumpkinModel" position="0 0 0" rotation="-90 0 0" scale="4 4 4"-->
@@ -276,6 +289,7 @@
         {markerId: '#common-marker', soundId: '#common-sound'},
         { markerId: '#cyclops-marker', soundId: '#fire-sound-cyclops' },
         {markerId: '#dragon-marker', soundId: '#dragon-roar'},
+        {markerId: '#pterodactyl-marker', soundId: '#jurassic-park'},
         // { markerId: '#pumpkin-marker', soundId: '#pumpkin-sound' },
         // { markerId: '#chucky-marker', soundId: '#chucky-sound' }
     ];
