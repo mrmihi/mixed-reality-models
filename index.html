@@ -100,6 +100,7 @@
         <!-- Models -->
         <a-asset-item id="rex" src="assets/models/rex.glb"></a-asset-item>
         <a-asset-item id="dgon" src="assets/models/dgon.glb"></a-asset-item>
+        <a-asset-item id="dragon-man" src="assets/models/silver_dragonkin_mir4.glb"></a-asset-item>
         <a-asset-item id="cyclops" src="assets/models/cyclops.glb"></a-asset-item>
         <a-asset-item id="tarisland_dragon" src="assets/models/tarisland_dragon.glb"></a-asset-item>
 
@@ -118,60 +119,72 @@
     <a-marker preset="hiro" id="common-marker">
         <!-- Dragon model -->
         <a-entity
-                id="dragon"
-                gltf-model="#dgon"
-                position="-5 2 0"
-                rotation="0 90 0"
-                scale="0.3 0.3 0.3"
-                animation-mixer
-                animation__run="
-                    property: position;
-                    from: -5 2 0;
-                    to:   5 2 0;
-                    dur: 4000;
-                    loop: true;
-                    easing: linear; ">
+            id="dragon"
+            gltf-model="#dgon"
+            position="-5 2 0"
+            rotation="0 90 0"
+            scale="0.3 0.3 0.3"
+            animation-mixer
+            animation__run="
+                property: position;
+                from: -5 2 0;
+                to:   5 2 0;
+                dur: 4000;
+                loop: true;
+                easing: linear; ">
         </a-entity>
-<a-entity 
-    id="cyclops"
-    gltf-model="#cyclops" 
-    position="0 0.1 0" 
-    scale="0.8 0.8 0.8" 
-    rotation="0 180 0"
-    animation-mixer
-    animation__float="
-        property: position; 
-        dir: alternate;
-        to: 0 0.6 0; 
-        dur: 1200; 
-        easing: easeInOutSine; 
-        loop: true"
-    animation__spin="
-        property: rotation; 
-        to: 0 540 0; 
-        dur: 4000; 
-        easing: linear; 
-        loop: true">
-</a-entity>
+        
+        <!-- DragonMan model -->
+        <a-entity
+            gltf-model="#dragon-man"
+            rotation="0 0 0"
+            scale="0.2 0.2 0.2"
+            position="3 0 0"
+            animation-mixer="clip: Mon_BlackDragon31_Btl_Atk01; loop: repeat">
+        </a-entity>
+
+        <!-- Cyclops model -->
+        <a-entity 
+            id="cyclops"
+            gltf-model="#cyclops" 
+            position="0 0.1 0" 
+            scale="0.8 0.8 0.8" 
+            rotation="0 180 0"
+            animation-mixer
+            animation__float="
+                property: position; 
+                dir: alternate;
+                to: 0 0.6 0; 
+                dur: 1200; 
+                easing: easeInOutSine; 
+                loop: true"
+            animation__spin="
+                property: rotation; 
+                to: 0 540 0; 
+                dur: 4000; 
+                easing: linear; 
+                loop: true">
+        </a-entity>
+
         <!-- Tarisland Dragon Model -->
         <a-entity
-                id="tarisland_dragon"
-                gltf-model="#tarisland_dragon"
-                position="-5 2 0"
-                rotation="0 -0 0"
-                scale="0.03 0.03 0.03"
-                animation-mixer="clip: Qishilong_fly2"
-                animation__run="
-                    property: position;
-                    from: 0 5 0;
-                    to:   0 -5 0;
-                    dur: 4000;
-                    loop: true;
-                    easing: linear; ">
+            id="tarisland_dragon"
+            gltf-model="#tarisland_dragon"
+            position="-5 2 0"
+            rotation="0 -0 0"
+            scale="0.03 0.03 0.03"
+            animation-mixer="clip: Qishilong_fly2"
+            animation__run="
+                property: position;
+                from: 0 5 0;
+                to:   0 -5 0;
+                dur: 4000;
+                loop: true;
+                easing: linear; ">
         </a-entity>
         <a-entity
-                id="common-sound"
-                sound="src: #commonSound; autoplay: false; loop: true">
+            id="common-sound"
+            sound="src: #commonSound; autoplay: false; loop: true">
     </a-marker>
 
 
