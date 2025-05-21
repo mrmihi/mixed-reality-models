@@ -103,6 +103,7 @@
         <a-asset-item id="dragon-man" src="assets/models/silver_dragonkin_mir4.glb"></a-asset-item>
         <a-asset-item id="cyclops" src="assets/models/cyclops.glb"></a-asset-item>
         <a-asset-item id="tarisland_dragon" src="assets/models/tarisland_dragon.glb"></a-asset-item>
+        <a-asset-item id="grassy_landscape_with_snow" src="assets/models/grassy_landscape_with_snow.glb"></a-asset-item>
 
         <!--        <a-asset-item id="pumpkinModel" src="assets/models/pumpkin.glb"></a-asset-item>-->
         <!--        <a-asset-item id="chucky" src="assets/models/chucky.glb"></a-asset-item>-->
@@ -148,7 +149,7 @@
             id="cyclops"
             gltf-model="#cyclops" 
             position="0 0.1 0" 
-            scale="0.8 0.8 0.8" 
+            scale="0.5 0.5 0.5" 
             rotation="0 180 0"
             animation-mixer
             animation__float="
@@ -181,6 +182,15 @@
                 dur: 4000;
                 loop: true;
                 easing: linear; ">
+        </a-entity>
+
+        <!-- Mountain model -->
+        <a-entity
+            id="grassy_landscape_with_snow"
+            gltf-model="#grassy_landscape_with_snow"
+            position="0 0 0"
+            rotation="0 -90 0"
+            scale="1.5 1.5 1.5">
         </a-entity>
         <a-entity
             id="common-sound"
