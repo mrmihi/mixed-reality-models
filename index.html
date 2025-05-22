@@ -114,6 +114,7 @@
         <audio id="commonSound" src="assets/audio/common.mp3"></audio>
         <audio id="dragonRoarSound" src="assets/audio/dragon-roar.mp3"></audio>
         <audio id="jurassicParkSound" src="assets/audio/jurassic-park.mp3"></audio>
+        <audio id="roarSound" src="assets/audio/roar.mp3"></audio>
         <!--        <audio id="chuckySound" src="assets/audio/evil.mp3"></audio>-->
         <!--        <audio id="pumpkinSound" src="assets/audio/funny.mp3"></audio>-->
     </a-assets>
@@ -207,19 +208,31 @@
     </a-marker>
 
     <!-- Zimma Cyclops -->
-<a-marker type="pattern" url="markers/pattern-C-pattern.patt" id="cyclops-marker">
-    <a-entity 
-        id="cyclops" 
+    <a-marker type="pattern" url="markers/pattern-marker.patt" id="cyclops-marker">
+    <a-entity
         gltf-model="#cyclops"  
         position="0 0.1 0"  
         scale="0.8 0.8 0.8"  
-        rotation="0 180 0"
+        rotation="-90 180 0"
         animation-mixer
-        animation__float="property: position; dir: alternate; to: 0 0.6 0; dur: 1200; easing: easeInOutSine; loop: true"
-        animation__spin="property: rotation; to: 0 540 0; dur: 4000; easing: linear; loop: true"
+        animation__float="
+      property: position; 
+      dir: alternate; 
+      to: 0 1 0; 
+      dur: 2000; 
+      easing: easeInOutSine; 
+      loop: true; 
+      delay: 200"
+    animation__spin="
+      property: rotation; 
+      to: 0 540 0; 
+      dur: 8000; 
+      easing: linear; 
+      loop: true">
+  </a-entity>
         >
 </a-entity>
-    <a-entity id="fire-sound" sound="src: #fireSound; autoplay: false; loop: true"></a-entity>
+    <a-entity id="roar-sound" sound="src: #roarSound; autoplay: false; loop: true"></a-entity>
 </a-marker>
 
     <!-- Tharee's Dragon -->
@@ -271,7 +284,7 @@
         {markerId: '#common-marker', soundId: '#common-sound'},
         {markerId: '#dragon-marker', soundId: '#dragon-roar'},
         {markerId: '#pterodactyl-marker', soundId: '#jurassic-park'},
-        {markerId: '#cyclops-marker', soundId: '#fire-sound'}
+        {markerId: '#cyclops-marker', soundId: '#roar-sound'}
         // { markerId: '#pumpkin-marker', soundId: '#pumpkin-sound' },
         // { markerId: '#chucky-marker', soundId: '#chucky-sound' }
     ];
